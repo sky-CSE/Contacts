@@ -3,6 +3,7 @@ package com.example.contacts
 import android.app.Application
 import android.content.Context
 import com.example.contacts.di.modules.apis
+import com.example.contacts.di.modules.localModule
 import com.example.contacts.di.modules.repositories
 import com.example.contacts.di.modules.viewModels
 import org.koin.android.ext.koin.androidContext
@@ -18,7 +19,7 @@ class MainApplication: Application() {
 
         startKoin {
             androidContext(this@MainApplication)
-            modules(listOf(apis, repositories, viewModels))
+            modules(listOf(apis, repositories, viewModels, localModule))
         }
 
         appContext = applicationContext
