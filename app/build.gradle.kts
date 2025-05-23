@@ -47,11 +47,25 @@ dependencies {
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)
 
+    // Retrofit (Networking)
     implementation(libs.retrofit)
     implementation(libs.converter.gson)
 
+    // Navigation
     implementation(libs.navigation.fragment)  // core version
     implementation(libs.navigation.ui)
     implementation(libs.navigation.fragment.ktx)
     implementation(libs.navigation.ui.ktx)
+
+    // Koin (Dependency Injection)
+    implementation(project.dependencies.platform(libs.koin.bom))
+    implementation(libs.koin.core)
+    implementation(libs.koin.android)
+
+    // ViewModel
+    implementation(libs.androidx.lifecycle.viewmodel.ktx)
+
+    // Chucker
+    implementation(libs.chucker)
+
 }
