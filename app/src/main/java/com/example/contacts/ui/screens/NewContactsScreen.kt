@@ -8,6 +8,7 @@ import android.view.ViewGroup
 import android.widget.Toast
 import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
+import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.RecyclerView
 import androidx.recyclerview.widget.RecyclerView.ItemDecoration
 import com.example.contacts.common.CommonAdapter
@@ -37,12 +38,8 @@ class NewContactsScreen : Fragment() {
     // Local Memory
     private val local: SharedPrefsManager by inject()
 
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        arguments?.let {
-
-        }
-    }
+    // local variables
+    private var contacts = emptyList<Contact>()
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -56,7 +53,21 @@ class NewContactsScreen : Fragment() {
         super.onViewCreated(view, savedInstanceState)
         initAdapter()
         fetchNewContacts()
+        listen()
         observe()
+    }
+
+    private fun listen() {
+        binding.apply {
+
+            syncBtn.setOnClickListener {
+                local.addContactsBulk(contacts)
+
+                Toast.makeText(requireContext(), "Contacts synced Successfully", Toast.LENGTH_SHORT).show()
+                findNavController().popBackStack()
+            }
+
+        }
     }
 
     private fun initAdapter() {
@@ -102,6 +113,7 @@ class NewContactsScreen : Fragment() {
                     showProgressBar(false)
 
                     response.data?.data?.users?.let {
+                        contacts = it
                         adapter.submitList(it)
                     } ?: run {
                         Toast.makeText(requireContext(), "No Data", Toast.LENGTH_SHORT).show()

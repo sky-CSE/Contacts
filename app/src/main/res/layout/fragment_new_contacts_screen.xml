@@ -40,7 +40,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:visibility="gone"
-        app:indicatorColor="#2196F3"
+        app:indicatorColor="#3F51B5"
         app:indicatorDirectionCircular="clockwise"
         app:indicatorSize="100dp"
         app:layout_constraintBottom_toBottomOf="parent"
