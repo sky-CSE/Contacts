@@ -29,13 +29,19 @@ class SharedPrefsManager(context: Context) {
 
     fun addContact(contact: Contact) {
         val list = getContacts()
-        list.add(contact)
-        saveContacts(list)
+        if (list.none { it.id == contact.id }) {
+            list.add(contact)
+            saveContacts(list)
+        }
     }
 
     fun addContactsBulk(newContacts: List<Contact>) {
-        val list = getContacts()
-        list.addAll(newContacts)
-        saveContacts(list)
+        val existing = getContacts()
+        val uniqueNew = newContacts.filter { new ->
+            existing.none { it.id == new.id }
+        }
+        existing.addAll(uniqueNew)
+        saveContacts(existing)
     }
+
 }

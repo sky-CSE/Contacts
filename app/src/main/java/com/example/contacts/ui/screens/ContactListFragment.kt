@@ -74,8 +74,8 @@ class ContactListFragment : Fragment() {
                 course = "",
                 email = "",
                 enrolledOn = "",
-                fullName = "SKY${Math.random()}",
-                id = "",
+                fullName = "SKY1",
+                id = "SKY1",
                 phone = ""
             )
         )
