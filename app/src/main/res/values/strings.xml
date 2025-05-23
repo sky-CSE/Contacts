@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">Contacts</string>
+    <string name="new_contacts_found">New contacts found</string>
 </resources>
