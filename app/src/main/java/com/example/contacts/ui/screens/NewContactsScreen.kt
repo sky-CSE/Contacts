@@ -137,6 +137,11 @@ class NewContactsScreen : Fragment() {
         contactViewModel.fetchContacts()
     }
 
+    override fun onDestroyView() {
+        super.onDestroyView()
+        _binding = null
+    }
+
     companion object {
 
         @JvmStatic

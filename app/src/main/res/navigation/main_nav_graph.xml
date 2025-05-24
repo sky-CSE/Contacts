@@ -18,4 +18,13 @@
         android:id="@+id/newContactsScreen"
         android:name="com.example.contacts.ui.screens.NewContactsScreen"
         android:label="NewContactsScreen" />
+    <fragment
+        android:id="@+id/addEditContactFragment"
+        android:name="com.example.contacts.ui.screens.AddEditContactFragment"
+        android:label="fragment_add_edit_contact"
+        tools:layout="@layout/fragment_add_edit_contact" />
+    <action
+        android:id="@+id/action_global_addEditContactFragment"
+        app:destination="@id/addEditContactFragment"
+        app:launchSingleTop="true" />
 </navigation>

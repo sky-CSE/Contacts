@@ -1,14 +1,11 @@
 package com.example.contacts.ui.screens
 
 import android.content.res.ColorStateList
-import android.graphics.Color
 import android.graphics.Rect
-import android.graphics.drawable.GradientDrawable
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.RecyclerView
@@ -53,32 +50,13 @@ class ContactListFragment : Fragment() {
         binding.apply {
 
             addBtn.setOnClickListener {
-                // TODO (Open "Add Contact" fragment)
-                Toast.makeText(requireContext(), "Add Button clicked", Toast.LENGTH_SHORT).show()
-
-                // TODO (Remove these codes)
-                saveNewContact()
-                showContactList()
+                findNavController().navigate(R.id.action_global_addEditContactFragment)
             }
 
             syncBtn.setOnClickListener {
-                // TODO (Open "Add new Contacts" fragment)
                 findNavController().navigate(R.id.action_contactListFragment_to_newContactsScreen)
             }
         }
-    }
-
-    private fun saveNewContact() {
-        local.addContact(
-            Contact(
-                course = "",
-                email = "",
-                enrolledOn = "",
-                fullName = "SKY1",
-                id = "SKY1",
-                phone = ""
-            )
-        )
     }
 
     private fun initView() {
@@ -96,7 +74,8 @@ class ContactListFragment : Fragment() {
                     tag.text = name.firstOrNull()?.uppercase() ?: ""
                     contactName.text = name
 
-                    tag.backgroundTintList = ColorStateList.valueOf(Utils.getColorForPosition(position))
+                    tag.backgroundTintList =
+                        ColorStateList.valueOf(Utils.getColorForPosition(position))
                 }
             }
         }
