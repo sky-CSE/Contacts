@@ -1,4 +1,11 @@
 <resources>
     <string name="app_name">Contacts</string>
     <string name="new_contacts_found">New contacts found</string>
+    <string name="save">Save</string>
+    <string name="add_contact">Add Contact</string>
+    <string name="add_picture">Add picture</string>
+    <string name="first_name">First Name</string>
+    <string name="surname">Surname</string>
+    <string name="company">Company</string>
+    <string name="phone_mobile">Phone (Mobile)</string>
 </resources>
